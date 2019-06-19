@@ -4,7 +4,6 @@ import by.epam.kvirykashvili.javalabtask.web.converter.EntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
@@ -12,13 +11,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@ComponentScan(basePackages = "by.epam.kvirykashvili.javalabtask.web.*")
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
@@ -44,9 +44,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-        localeChangeInterceptor.setParamName("locale");
-        registry.addInterceptor(localeChangeInterceptor);
+        registry.addInterceptor(new LocaleChangeInterceptor());
     }
 
     @Autowired
