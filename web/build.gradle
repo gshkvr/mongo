@@ -27,7 +27,6 @@ repositories {
 dependencies {
     compile project (':service')
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.5.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-security:2.1.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-freemarker:2.1.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-tomcat:2.1.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-aop:2.1.5.RELEASE'
@@ -35,7 +34,6 @@ dependencies {
     compile 'org.freemarker:freemarker:2.3.28'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.5.RELEASE'
-    testCompile 'org.springframework.security:spring-security-test:5.1.5.RELEASE'
     compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
