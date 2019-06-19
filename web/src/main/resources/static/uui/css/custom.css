@@ -1,0 +1,11 @@
+.hoverTable tr:hover {
+    cursor: pointer;
+}
+
+.div-inline {
+    display: inline;
+}
+
+.headline h1, .headline p {
+    display: inline;
+}
